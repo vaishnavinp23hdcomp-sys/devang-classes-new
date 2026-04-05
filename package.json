@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
+    "start:vercel": "node run-vercel-local.mjs",
     "dev": "nodemon server.js",
     "init-db": "node src/initDb.js",
     "reset-db": "node src/resetDb.js"
