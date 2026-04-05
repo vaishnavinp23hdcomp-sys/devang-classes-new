@@ -5,7 +5,7 @@ import cors from 'cors';
 import path from 'path';
 import fs from 'fs';
 import apiRouter, { ensureSchema } from './api.js';
-import { PROJECT_ROOT, UPLOADS_DIR } from './path.js';
+import { PROJECT_ROOT, UPLOADS_DIR } from './paths.js';
 
 export async function createApp() {
   await ensureSchema();

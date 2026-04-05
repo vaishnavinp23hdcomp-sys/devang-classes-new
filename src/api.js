@@ -8,7 +8,7 @@ import fs from 'fs';
 import nodemailer from 'nodemailer';
 import QRCode from 'qrcode';
 import { put, del } from '@vercel/blob';
-import { UPLOADS_DIR } from './path.js';
+import { UPLOADS_DIR } from './paths.js';
 import pool from './db.js';
 import { q, qOne, qAll, qExec, withTransaction } from './pgQuery.js';
 import { requireAuth, requireTeacher } from './authMiddleware.js';
