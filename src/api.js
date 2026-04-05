@@ -8,6 +8,7 @@ import fs from 'fs';
 import nodemailer from 'nodemailer';
 import QRCode from 'qrcode';
 import { put, del } from '@vercel/blob';
+import { UPLOADS_DIR } from './path.js';
 import pool from './db.js';
 import { q, qOne, qAll, qExec, withTransaction } from './pgQuery.js';
 import { requireAuth, requireTeacher } from './authMiddleware.js';
@@ -15,10 +16,6 @@ import { requireAuth, requireTeacher } from './authMiddleware.js';
 const router = express.Router();
 
 const asyncHandler = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
-
-const rootDir = process.cwd();
-const UPLOADS_DIR = process.env.UPLOADS_DIR || path.join(rootDir, 'public', 'uploads');
-if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 
 const memoryStorage = multer.memoryStorage();
 const upload = multer({

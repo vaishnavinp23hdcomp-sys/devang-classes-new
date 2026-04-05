@@ -5,8 +5,7 @@ import cors from 'cors';
 import path from 'path';
 import fs from 'fs';
 import apiRouter, { ensureSchema } from './api.js';
-
-const rootDir = process.cwd();
+import { PROJECT_ROOT, UPLOADS_DIR } from './path.js';
 
 export async function createApp() {
   await ensureSchema();
@@ -17,18 +16,15 @@ export async function createApp() {
   app.use(express.json({ limit: '50mb' }));
   app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
-  const uploadsDir = process.env.UPLOADS_DIR || path.join(rootDir, 'public', 'uploads');
-  if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
-
-  app.use('/uploads', express.static(path.resolve(uploadsDir)));
-  app.use(express.static(path.join(rootDir, 'public')));
+  app.use('/uploads', express.static(path.resolve(UPLOADS_DIR)));
+  app.use(express.static(path.join(PROJECT_ROOT, 'public')));
 
   app.use('/api', apiRouter);
 
   app.get('*', (req, res) => {
-    const indexPath = path.join(rootDir, 'public', 'index.html');
+    const indexPath = path.join(PROJECT_ROOT, 'public', 'index.html');
     if (fs.existsSync(indexPath)) {
-      res.sendFile(indexPath);
+      res.sendFile(path.resolve(indexPath));
     } else {
       res.status(404).send('Frontend not found. Make sure index.html is in the public/ folder.');
     }
