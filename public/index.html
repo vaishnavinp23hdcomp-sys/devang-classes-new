@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Loading...</title>
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: Arial, sans-serif;
+
+        background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #000000);
+        background-size: 400% 400%;
+        animation: gradientBG 8s ease infinite;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Logo animation */
+      img {
+        width: 330px;
+        animation: zoomGlow 5.5s ease-in-out;
+      }
+
+      @keyframes zoomGlow {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* Glow effect */
+      img {
+        filter: drop-shadow(0 0 10px #00ffcc);
+        animation:
+          zoomGlow 2.5s ease-in-out,
+          glow 1.5s infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          filter: drop-shadow(0 0 5px #00ffcc);
+        }
+        to {
+          filter: drop-shadow(0 0 25px #00ffcc);
+        }
+      }
+
+      /* Loading text */
+      .loading {
+        color: white;
+        margin-top: 20px;
+        font-size: 18px;
+        letter-spacing: 2px;
+        animation: fadeText 2s infinite;
+      }
+
+      @keyframes fadeText {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      /* Particles */
+      .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.7;
+        animation: float 6s linear infinite;
+      }
+
+      @keyframes float {
+        from {
+          transform: translateY(100vh) scale(0.5);
+        }
+        to {
+          transform: translateY(-10vh) scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- LOGO -->
+    <img src="./logo.jpeg" alt="Logo" />
+
+    <!-- TEXT -->
+    <div class="loading">Loading...</div>
+
+    <!-- PARTICLES -->
+    <script>
+      for (let i = 0; i < 30; i++) {
+        let p = document.createElement("div");
+        p.className = "particle";
+        p.style.left = Math.random() * 100 + "vw";
+        p.style.animationDuration = 3 + Math.random() * 5 + "s";
+        document.body.appendChild(p);
+      }
+
+      // Redirect
+      setTimeout(() => {
+        window.location.href = "./splash.html";
+      }, 3000);
+    </script>
+  </body>
+</html>

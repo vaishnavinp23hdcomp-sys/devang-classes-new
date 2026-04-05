@@ -1,0 +1,1393 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Devang Classes — Excellence in Education</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════
+     LANDING PAGE
+═══════════════════════════════════════ -->
+    <div id="landing">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+      <div class="orb orb3"></div>
+
+      <nav class="land-nav">
+        <div class="land-logo">
+          Devang<span>Classes</span><sup>AI</sup>
+          <sub>Govathane, Uran 410206</sub>
+        </div>
+        <div class="land-nav-right">
+          <button class="btn btn-ghost" onclick="openModal('modal-teacher')">
+            👩‍🏫 Teacher Login
+          </button>
+          <button
+            class="btn btn-flame"
+            onclick="openModal('modal-student-login')"
+          >
+            🎓 Student Portal
+          </button>
+        </div>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-badge">
+          <span class="dot"></span> AI-Powered Learning Platform • Est. 2010
+        </div>
+        <h1 class="hero-h1">
+          <span class="t-flame">Devang Classes</span><br />
+          Where <span class="t-aqua">Excellence</span><br />
+          Begins
+        </h1>
+        <p class="hero-sub">
+          The complete digital coaching institute — AI quiz generation, smart
+          attendance, automated results, fee management and more. All in one
+          platform.
+        </p>
+        <div class="hero-btns">
+          <button
+            class="btn btn-flame btn-lg"
+            onclick="openModal('modal-teacher')"
+          >
+            👩‍🏫 Teacher Dashboard
+          </button>
+          <button
+            class="btn btn-lilac btn-lg"
+            onclick="openModal('modal-student-login')"
+          >
+            🎓 Student Portal
+          </button>
+          <button
+            class="btn btn-ghost btn-lg"
+            onclick="openModal('modal-student-reg')"
+          >
+            ✍️ New Admission
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="h-stat">
+            <div class="h-stat-val" id="land-stat-students">—</div>
+            <div class="h-stat-label">Students</div>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <div class="h-stat-val">5</div>
+            <div class="h-stat-label">Subjects</div>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <div class="h-stat-val">AI</div>
+            <div class="h-stat-label">Quiz Generator</div>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <div class="h-stat-val">100%</div>
+            <div class="h-stat-label">Digital</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="feat-strip">
+        <div class="feat-item">
+          <span class="feat-icon">🤖</span>
+          <div>
+            <b>AI Quiz Generator</b>
+            <p>Upload notes → instant quiz</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <span class="feat-icon">✅</span>
+          <div>
+            <b>Smart Attendance</b>
+            <p>Date-wise subject tracking</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <span class="feat-icon">📊</span>
+          <div>
+            <b>Auto Result System</b>
+            <p>Instant grading & analytics</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <span class="feat-icon">💳</span>
+          <div>
+            <b>Online Fee Payment</b>
+            <p>AutoQR code Grenerator</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <span class="feat-icon">📧</span>
+          <div>
+            <b>Student Reports</b>
+            <p>Auto notify to Parents</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+     MODALS
+═══════════════════════════════════════ -->
+
+    <!-- Teacher Login -->
+    <div class="overlay" id="modal-teacher">
+      <div class="modal">
+        <button class="modal-x" onclick="closeModal('modal-teacher')">✕</button>
+        <div class="modal-icon">👩‍🏫</div>
+        <h2>Teacher Login</h2>
+        <p class="modal-sub">Access your admin dashboard & all tools</p>
+        <div class="fg">
+          <label>Email</label><input type="email" id="t-email" />
+        </div>
+        <div class="fg">
+          <label>Password</label><input type="password" id="t-pass" />
+        </div>
+        <button class="btn btn-flame btn-block" onclick="App.teacherLogin()">
+          Login to Dashboard →
+        </button>
+        <p class="hint" style="text-align: center; margin-top: 12px">
+          Forgot password?
+          <button class="link-btn" onclick="App.openForgotPassword('teacher')">
+            Reset here
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <!-- Student Login -->
+    <div class="overlay" id="modal-student-login">
+      <div class="modal">
+        <button class="modal-x" onclick="closeModal('modal-student-login')">
+          ✕
+        </button>
+        <div class="modal-icon">🎓</div>
+        <h2>Student Login</h2>
+        <p class="modal-sub">Enter your registered credentials</p>
+        <div class="fg">
+          <label>Email or Student ID</label><input type="text" id="s-email" />
+        </div>
+        <div class="fg">
+          <label>Password</label><input type="password" id="s-pass" />
+        </div>
+        <button class="btn btn-lilac btn-block" onclick="App.studentLogin()">
+          Login to Portal →
+        </button>
+        <p class="hint" style="text-align: center; margin-top: 12px">
+          Forgot password?
+          <button class="link-btn" onclick="App.openForgotPassword('student')">
+            Reset here
+          </button>
+        </p>
+        <p class="hint" style="text-align: center; margin-top: 12px">
+          <button
+            class="link-btn"
+            onclick="
+              closeModal('modal-student-login');
+              openModal('modal-student-reg');
+            "
+          >
+            Register
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <!-- Student Register -->
+    <div class="overlay" id="modal-student-reg">
+      <div class="modal modal-wide">
+        <button class="modal-x" onclick="closeModal('modal-student-reg')">
+          ✕
+        </button>
+        <h2>New Student Registration</h2>
+        <p class="modal-sub">
+          Join Devang Classes — fill your details to get started
+        </p>
+        <div class="form-row">
+          <div class="fg">
+            <label>First Name *</label
+            ><input type="text" id="r-fname" placeholder="Aarav" />
+          </div>
+          <div class="fg">
+            <label>Last Name *</label
+            ><input type="text" id="r-lname" placeholder="Sharma" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Email *</label
+            ><input type="email" id="r-email" placeholder="aarav@gmail.com" />
+          </div>
+          <div class="fg">
+            <label>Mobile Number *</label
+            ><input type="tel" id="r-phone" placeholder="8828502846" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Parent/Guardian Name</label
+            ><input type="text" id="r-parent" placeholder="Rakesh Sharma" />
+          </div>
+          <div class="fg">
+            <label>Parent Mobile Number *</label
+            ><input type="tel" id="r-parent-phone" placeholder="9876543210" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Parent Email *</label>
+            <div style="display: flex; gap: 8px; align-items: center">
+              <input
+                type="email"
+                id="r-parent-email"
+                placeholder="parent@example.com"
+                style="flex: 1"
+              />
+              <button
+                type="button"
+                class="btn btn-outline-ink btn-sm"
+                onclick="App.sendParentOtp()"
+              >
+                Send OTP
+              </button>
+            </div>
+            <div
+              id="r-parent-verify-status"
+              class="hint"
+              style="margin-top: 6px"
+            >
+              Parent email not verified yet.
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Class / Grade *</label>
+            <select id="r-class">
+              <option value="">Select Class</option>
+              <option>Class 8</option>
+              <option>Class 9</option>
+              <option>Class 10</option>
+              <option>Class 11 Science</option>
+              <option>Class 12 Science</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Subjects (Ctrl+Click for multiple) *</label>
+          <select id="r-subjects" multiple style="height: 110px">
+            <option value="Maths">📐 Mathematics</option>
+            <option value="Biology">🔬 Biology</option>
+            <option value="Physics">⚡ Physics</option>
+            <option value="English">📝 English</option>
+            <option value="Chemistry">🧪 Chemistry</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Password *</label
+            ><input
+              type="password"
+              id="r-pass"
+              placeholder="Create a strong password (min 6 chars)"
+            />
+          </div>
+          <div class="fg">
+            <label>Address</label
+            ><input type="text" id="r-addr" placeholder="Panvel, Navi Mumbai" />
+          </div>
+        </div>
+        <input type="hidden" id="r-parent-verified" value="0" />
+        <button class="btn btn-flame btn-block" onclick="App.registerStudent()">
+          Register & Send OTP →
+        </button>
+        <!--<button class="btn btn-flame btn-block" onclick="App.registerStudent()">Submit Registration →</button>-->
+        <p class="hint" style="text-align: center; margin-top: 10px">
+          Already registered?
+          <button
+            class="link-btn"
+            onclick="
+              closeModal('modal-student-reg');
+              openModal('modal-student-login');
+            "
+          >
+            Login here
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <!-- OTP Verify Modal -->
+    <div class="overlay" id="modal-otp-verify">
+      <div class="modal modal-otp">
+        <button class="modal-x" onclick="closeModal('modal-otp-verify')">
+          ✕
+        </button>
+        <div class="modal-icon">📧</div>
+        <h2>Verify Your Email</h2>
+        <p class="modal-sub">
+          We have sent a 6-digit OTP to your email address.
+        </p>
+
+        <div class="fg">
+          <label>Email</label>
+          <input type="email" id="otp-email" readonly />
+        </div>
+
+        <div class="fg">
+          <label>Enter OTP</label>
+          <input
+            type="text"
+            id="otp-code"
+            placeholder="Enter 6-digit OTP"
+            maxlength="6"
+          />
+        </div>
+
+        <div class="otp-actions">
+          <button class="btn btn-flame btn-block" onclick="App.verifyOtp()">
+            Verify OTP
+          </button>
+          <button
+            class="btn btn-outline-ink btn-block"
+            type="button"
+            onclick="App.resendOtp()"
+          >
+            Resend OTP
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parent Email Verify Modal -->
+    <div class="overlay" id="modal-parent-verify">
+      <div class="modal modal-otp">
+        <button class="modal-x" onclick="closeModal('modal-parent-verify')">
+          ✕
+        </button>
+        <div class="modal-icon">📧</div>
+        <h2>Verify Parent Email</h2>
+        <p class="modal-sub">Enter the OTP sent to the parent email address.</p>
+        <div class="fg">
+          <label>Parent Email</label
+          ><input type="text" id="parent-otp-email" readonly />
+        </div>
+        <div class="fg">
+          <label>OTP</label
+          ><input
+            type="text"
+            id="parent-otp-code"
+            placeholder="Enter 6-digit OTP"
+            maxlength="6"
+          />
+        </div>
+        <div class="otp-actions">
+          <button
+            class="btn btn-flame btn-block"
+            onclick="App.verifyParentOtp()"
+          >
+            Verify Parent Email
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="overlay" id="modal-forgot-password">
+      <div class="modal modal-otp">
+        <button class="modal-x" onclick="closeModal('modal-forgot-password')">
+          ✕
+        </button>
+        <div class="modal-icon">🔐</div>
+        <h2>Reset Password</h2>
+        <p class="modal-sub">
+          Request OTP and set a new password for teacher or student account.
+        </p>
+        <input type="hidden" id="fp-role" />
+        <div class="fg">
+          <label>Email or Student ID</label
+          ><input
+            type="text"
+            id="fp-email"
+            placeholder="pratiksha@shruticlasses.com or SC001"
+          />
+        </div>
+        <div class="otp-actions" style="margin-bottom: 12px">
+          <button
+            class="btn btn-outline-ink btn-block"
+            onclick="App.sendResetOtp()"
+          >
+            Send Reset OTP
+          </button>
+        </div>
+        <div class="fg">
+          <label>OTP</label
+          ><input
+            type="text"
+            id="fp-otp"
+            placeholder="Enter 6-digit OTP"
+            maxlength="6"
+          />
+        </div>
+        <div class="fg">
+          <label>New Password</label
+          ><input
+            type="password"
+            id="fp-new-pass"
+            placeholder="Minimum 6 characters"
+          />
+        </div>
+        <div class="otp-actions">
+          <button class="btn btn-flame btn-block" onclick="App.resetPassword()">
+            Reset Password
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Add Schedule -->
+    <div class="overlay" id="modal-sched">
+      <div class="modal">
+        <button class="modal-x" onclick="closeModal('modal-sched')">✕</button>
+        <h2>Add Class to Timetable</h2>
+        <div class="fg">
+          <label>Subject</label>
+          <select id="sched-subj">
+            <option>Maths</option>
+            <option>Biology</option>
+            <option>Physics</option>
+            <option>English</option>
+            <option>Chemistry</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Day</label>
+            <select id="sched-day">
+              <option>Monday</option>
+              <option>Tuesday</option>
+              <option>Wednesday</option>
+              <option>Thursday</option>
+              <option>Friday</option>
+              <option>Saturday</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Time</label
+            ><input type="time" id="sched-time" value="09:00" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Duration (min)</label
+            ><input
+              type="number"
+              id="sched-dur"
+              value="60"
+              min="30"
+              step="30"
+            />
+          </div>
+          <div class="fg">
+            <label>For Class</label>
+            <select id="sched-class">
+              <option>All Classes</option>
+              <option>Class 8</option>
+              <option>Class 9</option>
+              <option>Class 10</option>
+              <option>Class 11 Science</option>
+              <option>Class 12 Science</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Notes (optional)</label
+          ><input
+            type="text"
+            id="sched-notes"
+            placeholder="e.g. Bring textbook"
+          />
+        </div>
+        <button class="btn btn-flame btn-block" onclick="App.addSchedule()">
+          Add to Timetable
+        </button>
+      </div>
+    </div>
+
+    <!-- Add Fee Record -->
+    <div class="overlay" id="modal-add-fee">
+      <div class="modal">
+        <button class="modal-x" onclick="closeModal('modal-add-fee')">✕</button>
+        <h2>Add Fee Record</h2>
+        <div class="fg">
+          <label>Select Student</label
+          ><select id="fee-student-sel"></select>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Amount (₹)</label
+            ><input type="number" id="fee-amt" value="2500" />
+          </div>
+          <div class="fg">
+            <label>Month</label><input type="month" id="fee-month" />
+          </div>
+        </div>
+        <div class="fg">
+          <label>Description</label
+          ><input
+            type="text"
+            id="fee-desc"
+            placeholder="Monthly Tuition Fees"
+          />
+        </div>
+        <button class="btn btn-flame btn-block" onclick="App.saveFeeRecord()">
+          Add Record
+        </button>
+      </div>
+    </div>
+
+    <!-- Payment Modal (Student) -->
+    <div class="overlay" id="modal-pay">
+      <div class="modal">
+        <button class="modal-x" onclick="closeModal('modal-pay')">✕</button>
+        <h2>💳 Pay Fees</h2>
+        <p class="modal-sub" id="pay-info-text">—</p>
+        <div class="tab-row" id="pay-tab-row">
+          <button
+            class="tab-pill on"
+            onclick="switchTab('pay-tab-row', 'pay-qr', this)"
+          >
+            📱 QR Code
+          </button>
+          <button
+            class="tab-pill"
+            onclick="switchTab('pay-tab-row', 'pay-upi', this)"
+          >
+            📞 Mobile UPI
+          </button>
+        </div>
+        <div id="pay-qr" class="tab-pane on">
+          <div class="pay-qr-box">
+            <div class="qr-img-wrap">
+              <img
+                id="qr-img"
+                src=""
+                alt="QR Code"
+                style="width: 160px; height: 160px; border-radius: 8px"
+                onerror="this.style.display = 'none'"
+              />
+              <div id="qr-loader" class="qr-loader">Loading QR...</div>
+            </div>
+            <div class="pay-upi-id" id="pay-upi-id">
+              UPI ID: vaishnavinpatil1001@oksbi
+            </div>
+            <div
+              id="pay-expiry"
+              style="
+                font-size: 12px;
+                color: var(--danger);
+                font-weight: 700;
+                margin-top: 6px;
+              "
+            ></div>
+            <div class="pay-amt-big" id="pay-amt-display">₹0</div>
+            <p class="hint">Scan with GPay, PhonePe, Paytm or any UPI app</p>
+          </div>
+        </div>
+        <div id="pay-upi" class="tab-pane">
+          <div class="fg" style="margin-top: 8px">
+            <label>UPI Mobile Number</label
+            ><input type="tel" id="pay-mobile-inp" value="9876543210" />
+          </div>
+          <div class="fg">
+            <label>Amount</label><input type="text" id="pay-amt-inp" readonly />
+          </div>
+          <div class="info-box">
+            📱 Send ₹<span id="pay-send-amt">0</span> to number
+            <strong>8828502846</strong> via any UPI app and note your UTR
+            number.
+          </div>
+        </div>
+        <div class="fg" style="margin-top: 16px">
+          <label>Transaction ID / UTR Number *</label
+          ><input
+            type="text"
+            id="pay-txn-id"
+            placeholder="Enter UTR or Transaction ID after paying"
+          />
+        </div>
+        <button
+          class="btn btn-success btn-block"
+          style="padding: 14px; font-size: 15px"
+          onclick="App.confirmPayment()"
+        >
+          ✅ Confirm Payment
+        </button>
+      </div>
+    </div>
+
+    <!-- AI Quiz Generator -->
+    <div class="overlay" id="modal-quiz-gen">
+      <div class="modal modal-wide">
+        <button class="modal-x" onclick="closeModal('modal-quiz-gen')">
+          ✕
+        </button>
+        <h2>🤖 AI Quiz Generator</h2>
+        <p class="modal-sub">
+          Paste your notes — Claude AI generates a complete quiz automatically
+        </p>
+        <div class="form-row">
+          <div class="fg">
+            <label>Subject</label>
+            <select id="qg-subject">
+              <option>Maths</option>
+              <option>Biology</option>
+              <option>Physics</option>
+              <option>English</option>
+              <option>Chemistry</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Topic / Chapter</label
+            ><input
+              type="text"
+              id="qg-topic"
+              placeholder="e.g. Photosynthesis, Quadratic Equations"
+            />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <label>Number of Questions</label>
+            <select id="qg-count">
+              <option value="5">5 Questions</option>
+              <option value="10" selected>10 Questions</option>
+              <option value="15">15 Questions</option>
+              <option value="20">20 Questions</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Difficulty</label>
+            <select id="qg-difficulty">
+              <option>Easy</option>
+              <option selected>Medium</option>
+              <option>Hard</option>
+              <option>Mixed</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Paste Notes / Chapter Content *</label>
+          <textarea
+            id="qg-notes"
+            style="min-height: 160px"
+            placeholder="Paste your chapter notes, textbook content, or any study material here (minimum 100 characters). The more detailed the content, the better the quiz quality."
+          ></textarea>
+          <p class="hint">Minimum 100 characters required</p>
+        </div>
+        <div class="fg">
+          <label>Quiz Title (auto-generated if blank)</label
+          ><input
+            type="text"
+            id="qg-title"
+            placeholder="e.g. Chapter 6 — Photosynthesis Quiz"
+          />
+        </div>
+        <div class="ai-loading" id="ai-loading">
+          <div class="ai-spinner"></div>
+          <div>
+            <strong>Claude AI is generating your quiz…</strong><br /><span
+              >Analyzing content & crafting intelligent questions</span
+            >
+          </div>
+        </div>
+        <button
+          class="btn btn-flame btn-block"
+          id="gen-btn"
+          onclick="App.generateQuizAI()"
+        >
+          ✨ Generate Quiz with AI
+        </button>
+      </div>
+    </div>
+
+    <!-- Quiz Preview -->
+    <div class="overlay" id="modal-quiz-preview">
+      <div class="modal modal-xl">
+        <button class="modal-x" onclick="closeModal('modal-quiz-preview')">
+          ✕
+        </button>
+        <div id="quiz-preview-content"></div>
+      </div>
+    </div>
+
+    <!-- Send Quiz -->
+    <div class="overlay" id="modal-send-quiz">
+      <div class="modal">
+        <button class="modal-x" onclick="closeModal('modal-send-quiz')">
+          ✕
+        </button>
+        <h2>📤 Send Quiz to Students</h2>
+        <p class="modal-sub">Quiz: <strong id="send-quiz-name">—</strong></p>
+        <div class="fg">
+          <label>Send To</label>
+          <select id="send-to-class">
+            <option value="all">🌐 All Students</option>
+            <option>Class 8</option>
+            <option>Class 9</option>
+            <option>Class 10</option>
+            <option>Class 11 Science</option>
+            <option>Class 12 Science</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Time Limit (minutes, 0 = unlimited)</label
+          ><input type="number" id="send-time-limit" value="30" min="0" />
+        </div>
+        <div class="fg">
+          <label>Due Date</label><input type="date" id="send-due-date" />
+        </div>
+        <button
+          class="btn btn-success btn-block"
+          style="padding: 14px"
+          onclick="App.sendQuizToStudents()"
+        >
+          📤 Send Quiz Now
+        </button>
+      </div>
+    </div>
+
+    <!-- Take Quiz -->
+    <div class="overlay" id="modal-take-quiz">
+      <div class="modal modal-xl">
+        <div id="take-quiz-inner"></div>
+      </div>
+    </div>
+
+    <!-- Quiz Result -->
+    <div class="overlay" id="modal-quiz-result">
+      <div class="modal modal-xl">
+        <button class="modal-x" onclick="closeModal('modal-quiz-result')">
+          ✕
+        </button>
+        <div id="quiz-result-inner"></div>
+      </div>
+    </div>
+
+    <!-- Feedback -->
+    <div class="overlay" id="modal-feedback">
+      <div class="modal">
+        <button class="modal-x" onclick="closeModal('modal-feedback')">
+          ✕
+        </button>
+        <div class="modal-icon">💬</div>
+        <h2>Share Your Feedback</h2>
+        <p class="modal-sub">Help us make learning better</p>
+        <div class="fg">
+          <label>Overall Rating</label>
+          <div class="star-row" id="star-sel">
+            <span class="star" onclick="App.setRating(1)">★</span>
+            <span class="star" onclick="App.setRating(2)">★</span>
+            <span class="star" onclick="App.setRating(3)">★</span>
+            <span class="star" onclick="App.setRating(4)">★</span>
+            <span class="star" onclick="App.setRating(5)">★</span>
+          </div>
+        </div>
+        <div class="fg">
+          <label>Subject</label>
+          <select id="fb-subject">
+            <option>Overall Classes</option>
+            <option>Maths</option>
+            <option>Biology</option>
+            <option>Physics</option>
+            <option>English</option>
+            <option>Chemistry</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label>Your Feedback *</label
+          ><textarea
+            id="fb-text"
+            placeholder="Share your thoughts, suggestions, or experience..."
+          ></textarea>
+        </div>
+        <button class="btn btn-lilac btn-block" onclick="App.submitFeedback()">
+          Submit Feedback ✓
+        </button>
+      </div>
+    </div>
+
+    <!-- Attendance Report -->
+    <div class="overlay" id="modal-att-report">
+      <div class="modal modal-xl">
+        <button class="modal-x" onclick="closeModal('modal-att-report')">
+          ✕
+        </button>
+        <h2>📊 Attendance Analytics Report</h2>
+        <div id="att-report-inner" style="margin-top: 16px"></div>
+      </div>
+    </div>
+
+    <!-- Quiz Results Dashboard -->
+    <div class="overlay" id="modal-quiz-results-dash">
+      <div class="modal modal-xl">
+        <button class="modal-x" onclick="closeModal('modal-quiz-results-dash')">
+          ✕
+        </button>
+        <div id="quiz-results-dash-inner"></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+     APP SHELL
+═══════════════════════════════════════ -->
+    <div id="app" style="display: none">
+      <div class="shell">
+        <aside class="sidebar" id="sidebar">
+          <div class="sb-head">
+            <div class="sb-logo">
+              Devang<span>Classes</span><sup>AI</sup
+              ><sub>Management System v2.0</sub>
+            </div>
+          </div>
+          <div style="padding: 10px 10px 4px">
+            <div class="sb-user" id="sb-user">
+              <div class="sb-av" id="sb-av">S</div>
+              <div class="sb-user-info">
+                <div class="sb-uname" id="sb-uname">Loading…</div>
+                <div class="sb-urole" id="sb-urole">—</div>
+              </div>
+              <span style="color: rgba(255, 255, 255, 0.3); font-size: 12px"
+                >›</span
+              >
+            </div>
+          </div>
+          <nav class="sb-nav" id="sb-nav"></nav>
+          <div class="sb-foot">
+            <div class="sb-logout" onclick="App.logout()">
+              <span>🚪</span> Logout
+            </div>
+          </div>
+        </aside>
+
+        <main class="main">
+          <header class="topbar">
+            <div>
+              <div class="topbar-title" id="topbar-title">Dashboard</div>
+              <div class="topbar-sub" id="topbar-sub">
+                Welcome to Devang Classes
+              </div>
+            </div>
+            <div class="topbar-right">
+              <span class="topbar-time" id="topbar-time"></span>
+            </div>
+          </header>
+
+          <div class="page-body">
+            <!-- ── TEACHER PAGES ── -->
+            <div class="pg" id="pg-dashboard">
+              <div class="stats-row" id="dash-stats"></div>
+              <div class="grid-2">
+                <div class="card">
+                  <div class="card-hdr">
+                    <h3>📋 Recent Students</h3>
+                    <button
+                      class="btn btn-sm btn-outline-flame"
+                      onclick="App.navTo('students')"
+                    >
+                      View All
+                    </button>
+                  </div>
+                  <div id="dash-students"></div>
+                </div>
+                <div class="card">
+                  <div class="card-hdr">
+                    <h3>⚠️ Pending Fees</h3>
+                    <button
+                      class="btn btn-sm btn-outline-flame"
+                      onclick="App.navTo('fees')"
+                    >
+                      Manage
+                    </button>
+                  </div>
+                  <div id="dash-fees"></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-hdr">
+                  <h3>📅 Today's Schedule</h3>
+                  <span class="text-muted" id="dash-today-label"></span>
+                </div>
+                <div id="dash-sched"></div>
+              </div>
+              <div class="grid-2">
+                <div class="card">
+                  <div class="card-hdr">
+                    <h3>🤖 Recent Quizzes</h3>
+                    <button
+                      class="btn btn-sm btn-outline-flame"
+                      onclick="App.navTo('quizzes')"
+                    >
+                      All Quizzes
+                    </button>
+                  </div>
+                  <div id="dash-quizzes"></div>
+                </div>
+                <div class="card">
+                  <div class="card-hdr"><h3>⭐ Latest Feedback</h3></div>
+                  <div id="dash-feedback"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-students">
+              <div class="card">
+                <div class="card-hdr">
+                  <div>
+                    <h3>👨‍🎓 All Students</h3>
+                    <div class="hdr-sub" id="student-count-label"></div>
+                  </div>
+                  <input
+                    class="search-inp"
+                    type="text"
+                    placeholder="🔍 Search by name, ID, email…"
+                    oninput="App.renderStudents(this.value)"
+                  />
+                </div>
+                <div class="tbl-wrap" id="students-tbl"></div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-schedule">
+              <div class="card">
+                <div class="card-hdr">
+                  <div>
+                    <h3>📅 Weekly Timetable</h3>
+                    <div class="hdr-sub">Manage class timings</div>
+                  </div>
+                  <button
+                    class="btn btn-flame btn-sm"
+                    onclick="openModal('modal-sched')"
+                  >
+                    + Add Class
+                  </button>
+                </div>
+                <div class="sched-wrap" id="schedule-view"></div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-attendance">
+              <div class="card">
+                <div class="card-hdr">
+                  <div>
+                    <h3>✅ Mark Attendance</h3>
+                    <div class="hdr-sub">
+                      Click student cards to toggle Present / Absent
+                    </div>
+                  </div>
+                  <div class="card-hdr-actions">
+                    <button
+                      class="btn btn-info btn-sm"
+                      onclick="App.viewAttReport()"
+                    >
+                      📊 Full Report
+                    </button>
+                    <button
+                      class="btn btn-success btn-sm"
+                      onclick="App.saveAttendance()"
+                    >
+                      💾 Save
+                    </button>
+                  </div>
+                </div>
+                <div class="att-toolbar">
+                  <div>
+                    <label>Subject</label
+                    ><select
+                      id="att-subj"
+                      onchange="App.renderAttGrid()"
+                      style="width: 160px"
+                    >
+                      <option>Maths</option>
+                      <option>Biology</option>
+                      <option>Physics</option>
+                      <option>English</option>
+                      <option>Chemistry</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Date</label
+                    ><input
+                      type="date"
+                      id="att-date"
+                      onchange="App.renderAttGrid()"
+                    />
+                  </div>
+                  <div style="margin-left: auto" id="att-summary"></div>
+                </div>
+                <div class="att-legend">
+                  <div class="leg-item">
+                    <div
+                      class="leg-dot"
+                      style="background: var(--success)"
+                    ></div>
+                    Present
+                  </div>
+                  <div class="leg-item">
+                    <div
+                      class="leg-dot"
+                      style="background: var(--danger)"
+                    ></div>
+                    Absent
+                  </div>
+                  <div class="leg-item">
+                    <div class="leg-dot" style="background: #c8c0f0"></div>
+                    Not Marked
+                  </div>
+                </div>
+                <div class="att-grid" id="att-grid"></div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-materials">
+              <div class="grid-2">
+                <div>
+                  <div class="card">
+                    <div class="card-hdr"><h3>📤 Upload Material</h3></div>
+                    <div class="fg">
+                      <label>Subject</label
+                      ><select id="mat-subj">
+                        <option>Maths</option>
+                        <option>Biology</option>
+                        <option>Physics</option>
+                        <option>English</option>
+                        <option>Chemistry</option>
+                      </select>
+                    </div>
+                    <div class="fg">
+                      <label>Title *</label
+                      ><input
+                        type="text"
+                        id="mat-title"
+                        placeholder="e.g. Chapter 5 Notes — Photosynthesis"
+                      />
+                    </div>
+                    <div class="fg">
+                      <label>Description</label
+                      ><input
+                        type="text"
+                        id="mat-desc"
+                        placeholder="Brief description"
+                      />
+                    </div>
+                    <div class="fg">
+                      <label>For Class</label
+                      ><select id="mat-class">
+                        <option>All Classes</option>
+                        <option>Class 8</option>
+                        <option>Class 9</option>
+                        <option>Class 10</option>
+                        <option>Class 11 Science</option>
+                        <option>Class 12 Science</option>
+                      </select>
+                    </div>
+                    <div
+                      class="upload-zone"
+                      id="upload-zone"
+                      onclick="document.getElementById('mat-file').click()"
+                      ondragover="this.classList.add('drag')"
+                      ondragleave="this.classList.remove('drag')"
+                      ondrop="handleFileDrop(event)"
+                    >
+                      <input
+                        type="file"
+                        id="mat-file"
+                        accept=".pdf,.doc,.docx,.ppt,.pptx,.txt,.png,.jpg"
+                        onchange="handleFileSelect(event)"
+                      />
+                      <div class="uz-icon">📂</div>
+                      <h4>Click to Browse or Drag & Drop</h4>
+                      <p>PDF, DOC, PPT, Images supported (Max 20MB)</p>
+                      <div class="uz-name" id="sel-file-name"></div>
+                    </div>
+                    <button
+                      class="btn btn-flame btn-block"
+                      onclick="App.uploadMaterial()"
+                    >
+                      Upload & Share with Students
+                    </button>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-hdr">
+                    <h3>📚 Shared Materials</h3>
+                    <select
+                      id="filter-mat-subj"
+                      onchange="App.renderMaterials()"
+                      style="width: 140px"
+                    >
+                      <option value="all">All Subjects</option>
+                      <option>Maths</option>
+                      <option>Biology</option>
+                      <option>Physics</option>
+                      <option>English</option>
+                      <option>Chemistry</option>
+                    </select>
+                  </div>
+                  <div id="materials-list"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-fees">
+              <div class="stats-row" id="fees-stats"></div>
+              <div id="fee-payments-panel"></div>
+              <div class="card">
+                <div class="card-hdr">
+                  <div>
+                    <h3>💰 Fee Records</h3>
+                    <div class="hdr-sub" id="fees-count-label"></div>
+                  </div>
+                  <div class="card-hdr-actions">
+                    <select
+                      id="fee-filter"
+                      onchange="App.renderFees()"
+                      style="width: 130px"
+                    >
+                      <option value="all">All Status</option>
+                      <option value="pending">Pending</option>
+                      <option value="paid">Paid</option>
+                    </select>
+                    <button
+                      class="btn btn-flame btn-sm"
+                      onclick="App.openAddFeeModal()"
+                    >
+                      + Add Record
+                    </button>
+                  </div>
+                </div>
+                <div class="tbl-wrap" id="fees-tbl"></div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-quizzes">
+              <div class="ai-panel">
+                <div class="ai-panel-content">
+                  <h2>🤖 AI-Powered Quiz System</h2>
+                  <p>
+                    Paste your notes → AI generates intelligent MCQs → Send to
+                    students → Auto-grade & publish results
+                  </p>
+                  <div class="ai-steps">
+                    <div class="ai-step">
+                      <div class="step-num">1</div>
+                      <span>Paste Notes</span>
+                    </div>
+                    <div class="ai-step">
+                      <div class="step-num">2</div>
+                      <span>AI Generates Quiz</span>
+                    </div>
+                    <div class="ai-step">
+                      <div class="step-num">3</div>
+                      <span>Preview & Send</span>
+                    </div>
+                    <div class="ai-step">
+                      <div class="step-num">4</div>
+                      <span>Auto Results</span>
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-gold btn-lg"
+                    onclick="openModal('modal-quiz-gen')"
+                  >
+                    ✨ Create New AI Quiz
+                  </button>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-hdr">
+                  <div>
+                    <h3>📝 All Quizzes</h3>
+                    <div class="hdr-sub" id="quiz-count-label"></div>
+                  </div>
+                  <select
+                    id="quiz-filter-subj"
+                    onchange="App.renderQuizzes()"
+                    style="width: 150px"
+                  >
+                    <option value="all">All Subjects</option>
+                    <option>Maths</option>
+                    <option>Biology</option>
+                    <option>Physics</option>
+                    <option>English</option>
+                    <option>Chemistry</option>
+                  </select>
+                </div>
+                <div id="quizzes-list"></div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-feedback">
+              <div class="stats-row" id="fb-stats"></div>
+              <div id="feedback-list"></div>
+            </div>
+
+            <div class="pg" id="pg-parent-reports">
+              <div class="card">
+                <div class="card-hdr">
+                  <div>
+                    <h3>📝 Student Reports</h3>
+                    <div class="hdr-sub">
+                      Select a student to view progress and send a student
+                      report.
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-flame btn-sm"
+                    id="send-parent-report-btn"
+                    onclick="App.sendParentReport()"
+                  >
+                    📧 Send Student Report
+                  </button>
+                </div>
+                <div class="grid-2" style="align-items: start">
+                  <div class="card" style="max-height: 520px; overflow: auto">
+                    <div class="card-hdr"><h3>👨‍🎓 Students</h3></div>
+                    <div id="parent-report-student-list"></div>
+                  </div>
+                  <div id="parent-report-detail"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ── STUDENT PAGES ── -->
+            <div class="pg" id="pg-s-dashboard">
+              <div class="stats-row" id="s-dash-stats"></div>
+              <div class="grid-2">
+                <div class="card">
+                  <div class="card-hdr"><h3>📝 Pending Quizzes</h3></div>
+                  <div id="s-pending-q"></div>
+                </div>
+                <div class="card">
+                  <div class="card-hdr"><h3>📊 My Attendance</h3></div>
+                  <div id="s-att-overview"></div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-hdr"><h3>🏆 My Quiz Results</h3></div>
+                <div id="s-recent-results"></div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-s-materials">
+              <div class="card">
+                <div class="card-hdr">
+                  <div>
+                    <h3>📚 Study Materials</h3>
+                    <div class="hdr-sub">Shared by your teacher</div>
+                  </div>
+                  <select
+                    id="s-mat-filter"
+                    onchange="App.renderStudentMaterials()"
+                    style="width: 160px"
+                  >
+                    <option value="all">All Subjects</option>
+                    <option>Maths</option>
+                    <option>Biology</option>
+                    <option>Physics</option>
+                    <option>English</option>
+                    <option>Chemistry</option>
+                  </select>
+                </div>
+                <div id="s-materials-list"></div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-s-quizzes">
+              <div class="grid-2">
+                <div class="card">
+                  <div class="card-hdr"><h3>📝 Available Quizzes</h3></div>
+                  <div id="s-quizzes-avail"></div>
+                </div>
+                <div class="card">
+                  <div class="card-hdr"><h3>🏆 Completed & Results</h3></div>
+                  <div id="s-quizzes-done"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-s-fees">
+              <div id="student-payment-active"></div>
+              <div class="card">
+                <div class="card-hdr">
+                  <h3>💳 My Fee Records</h3>
+                  <div class="hdr-sub">Pay online via QR or Mobile UPI</div>
+                </div>
+                <div id="s-fees-list"></div>
+              </div>
+              <div class="card">
+                <div class="card-hdr">
+                  <h3>🧾 Payment History</h3>
+                  <div class="hdr-sub">Generated QR requests and receipts</div>
+                </div>
+                <div id="student-payment-history"></div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-s-feedback">
+              <div class="card" style="text-align: center; padding: 40px">
+                <div style="font-size: 64px; margin-bottom: 16px">💬</div>
+                <h2 style="margin-bottom: 8px">Share Your Experience</h2>
+                <p
+                  class="text-muted"
+                  style="
+                    margin-bottom: 28px;
+                    max-width: 400px;
+                    margin-left: auto;
+                    margin-right: auto;
+                  "
+                >
+                  Your feedback helps Devang Classes improve teaching quality.
+                </p>
+                <button
+                  class="btn btn-lilac btn-lg"
+                  onclick="openModal('modal-feedback')"
+                >
+                  Write Feedback →
+                </button>
+              </div>
+              <div class="card">
+                <div class="card-hdr"><h3>My Previous Feedback</h3></div>
+                <div id="s-my-feedback"></div>
+              </div>
+            </div>
+
+            <div class="pg" id="pg-s-schedule">
+              <div class="card">
+                <div class="card-hdr">
+                  <h3>📅 My Class Schedule</h3>
+                  <div class="hdr-sub">Your personalized weekly timetable</div>
+                </div>
+                <div class="sched-wrap" id="s-schedule-view"></div>
+              </div>
+            </div>
+          </div>
+          <!-- /page-body -->
+        </main>
+      </div>
+      <!-- /shell -->
+    </div>
+    <!-- /app -->
+
+    <div id="toast-wrap"></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
