@@ -595,12 +595,38 @@ const App = {
           API.get("/quiz-results"),
         ]);
       $("dash-stats").innerHTML = `
-        <div class="stat-card sc-flame"><div class="stat-icon">👨‍🎓</div><div class="stat-val">${stats.students}</div><div class="stat-label">Total Students</div></div>
-        <div class="stat-card sc-success"><div class="stat-icon">💰</div><div class="stat-val">₹${stats.feePaid.toLocaleString()}</div><div class="stat-label">Fees Collected</div></div>
-        <div class="stat-card sc-lilac"><div class="stat-icon">⏳</div><div class="stat-val" style="color:var(--danger)">₹${stats.feePending.toLocaleString()}</div><div class="stat-label">Fees Pending</div></div>
-        <div class="stat-card sc-gold"><div class="stat-icon">🤖</div><div class="stat-val">${stats.quizCount}</div><div class="stat-label">Quizzes</div></div>
-        <div class="stat-card sc-aqua"><div class="stat-icon">⭐</div><div class="stat-val">${stats.fbAvg || "—"}</div><div class="stat-label">Avg Rating</div></div>
-      `;
+  <div class="stat-card sc-flame">
+    <div class="stat-icon">👨‍🎓</div>
+    <div class="stat-val">${Number(stats.students || 0)}</div>
+    <div class="stat-label">Total Students</div>
+  </div>
+
+  <div class="stat-card sc-success">
+    <div class="stat-icon">💰</div>
+    <div class="stat-val">₹${Number(stats.feePaid || 0).toLocaleString()}</div>
+    <div class="stat-label">Fees Collected</div>
+  </div>
+
+  <div class="stat-card sc-lilac">
+    <div class="stat-icon">⏳</div>
+    <div class="stat-val" style="color:var(--danger)">
+      ₹${Number(stats.feePending || 0).toLocaleString()}
+    </div>
+    <div class="stat-label">Fees Pending</div>
+  </div>
+
+  <div class="stat-card sc-gold">
+    <div class="stat-icon">🤖</div>
+    <div class="stat-val">${Number(stats.quizCount || 0)}</div>
+    <div class="stat-label">Quizzes</div>
+  </div>
+
+  <div class="stat-card sc-aqua">
+    <div class="stat-icon">⭐</div>
+    <div class="stat-val">${Number(stats.fbAvg || 0).toFixed(1)}</div>
+    <div class="stat-label">Avg Rating</div>
+  </div>
+`;
       // Pending fees
       $("dash-fees").innerHTML = fees.length
         ? `

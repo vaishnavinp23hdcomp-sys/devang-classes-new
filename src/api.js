@@ -1559,7 +1559,7 @@ router.get(
     const positiveRow = await qOne(pool, 'SELECT COUNT(*)::int AS n FROM feedback WHERE rating >= 4');
     res.json({
       total: totalRow.n,
-      avg: parseFloat((avgRow.avg || 0).toFixed(1)),
+      avg: parseFloat(Number(avgRow.avg || 0).toFixed(1)),
       positive: positiveRow.n
     });
   })
@@ -1574,15 +1574,17 @@ router.get(
     const feePending = (await qOne(pool, "SELECT COALESCE(SUM(amount),0)::bigint AS n FROM fees WHERE status='pending'")).n;
     const quizCount = (await qOne(pool, 'SELECT COUNT(*)::int AS n FROM quizzes')).n;
     const subCount = (await qOne(pool, 'SELECT COUNT(*)::int AS n FROM quiz_results')).n;
-    const fbAvg = (await qOne(pool, 'SELECT AVG(rating) as n FROM feedback')).n;
-    res.json({
-      students,
-      feePaid: Number(feePaid),
-      feePending: Number(feePending),
-      quizCount,
-      subCount,
-      fbAvg: parseFloat((fbAvg || 0).toFixed(1))
-    });
+    const fbAvgRaw = (await qOne(pool, 'SELECT AVG(rating) as n FROM feedback')).n;
+const fbAvg = Number(fbAvgRaw || 0);
+
+ res.json({
+  students,
+  feePaid: Number(feePaid),
+  feePending: Number(feePending),
+  quizCount: Number(quizCount),
+  subCount: Number(subCount),
+  fbAvg: Number.isFinite(fbAvg) ? parseFloat(fbAvg.toFixed(1)) : 0
+});
   })
 );
 
